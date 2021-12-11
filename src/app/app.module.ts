@@ -7,9 +7,10 @@ import { HelloComponent } from './hello.component';
 import { NavHeaderComponent } from './layout/header/navheader.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
+  imports:      [ BrowserModule, FormsModule,  HttpClientModule ],
   declarations: [ AppComponent, 
                   HelloComponent,
                   NavHeaderComponent,
