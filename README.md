@@ -1,3 +1,5 @@
-# angular-ivy-8zxpyp
+git clone ...
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-ivy-8zxpyp)
+npm install --save-dev @angular/cli@12.2.14
+
+tsconfig: "enableIvy": false,
