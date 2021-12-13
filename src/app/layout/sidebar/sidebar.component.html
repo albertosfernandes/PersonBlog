@@ -19,21 +19,19 @@
     </svg>
     <span class="fs-5 fw-semibold">Artigos</span>
   </a>
-  <div class="list-group list-group-flush border-bottom scrollarea">
+  <div class="list-group list-group-flush border-bottom scrollarea" *ngFor="let article of articles">
     <div
       class="list-group-item list-group-item-action active py-3 lh-tight"
       aria-current="true"
     >
       <div class="d-flex w-100 align-items-center justify-content-between">
-        <strong class="mb-1">Por onde tudo começa!</strong>
-        <small>10/12/2021</small>
+        <strong class="mb-1">{{article.articleTitle}}</strong>
+        <small>{{article.articleDate}}</small>
       </div>
       <div class="col-10 mb-1 small">
-        No primeiro post eu faço uma prévia sobre o objetivo deste blog e o
-        esboço de um projeto inicial como base para meus futuros estudos e
-        experimentos.
+        {{article.articleResume}}
       </div>
-      <span>#Route53 #S3</span>
+      <span>{{article.articleKeys}}</span>
     </div>
   </div>
 </div>

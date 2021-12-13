@@ -19,14 +19,14 @@ export class ArticleService {
       articleId: 2,
       articleTitle: 'Segundo artigo de teste',
       articleDate: '11/12/2021',
-      articleResume: 'Este é um artigo de teste....',
+      articleResume: 'Este é um artigo de teste do segundo artigo.... Criando massa de dados como teste',
       articleKeys: '#teste2',
     },
     {
       articleId: 3,
       articleTitle: 'Terceiro artigo de teste',
       articleDate: '11/12/2021',
-      articleResume: 'Este é um artigo de teste....',
+      articleResume: 'Este é um artigo de teste para o item 3 da minha lista....',
       articleKeys: '#teste3',
     },
   ];
