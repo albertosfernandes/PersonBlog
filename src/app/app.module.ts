@@ -8,6 +8,7 @@ import { NavHeaderComponent } from './layout/header/navheader.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BodyComponent } from './layout/body/body.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule,  HttpClientModule ],
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
                   HelloComponent,
                   NavHeaderComponent,
                   SidebarComponent,
-                  FooterComponent
+                  FooterComponent,
+                  BodyComponent
                 ],
   bootstrap:    [ AppComponent ]
 })
