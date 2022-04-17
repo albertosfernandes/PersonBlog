@@ -1,0 +1,21 @@
+version: 0.2
+env:
+  variables:
+    APP_NAME: "personal-notes-asf"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14.x
+    commands:
+      - echo install process started
+      - npm install && npm install -g @angular/cli@12.2.14
+  build:
+    commands:
+      - echo build process started now
+      - ng build
+  post_build:
+    commands:
+      - echo build process finished, we should uplload to S3 now
+      - cd dist/demo
+      - ls -la
+      - aws s3 sync . s3://asfpersonblog-hmg --delete
