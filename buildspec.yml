@@ -10,7 +10,7 @@ phases:
       - echo install process started
       - npm install npm@latest -g
       - npm install -g @angular/cli
-  pre_builds:
+  pre_build:
     commands:
       - echo Prebuild steps
       - npm install
