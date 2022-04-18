@@ -8,11 +8,16 @@ phases:
       nodejs: 12.x
     commands:
       - echo install process started
-      - npm install && npm install -g @angular/cli@12.2.14
+      - npm install npm@latest -g
+      - npm install -g @angular/cli
+  pre_builds:
+    commands:
+      - echo Prebuild steps
+      - npm install
   build:
     commands:
       - echo build process started now
-      - ng build --prod
+      - ng build
   post_build:
     commands:
       - echo build process finished, we should uplload to S3 now
