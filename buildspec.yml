@@ -5,10 +5,10 @@ env:
 phases:
   install:
     runtime-versions:
-      nodejs: 12.x
+      nodejs: 12
     commands:
       - echo install process started
-      - npm install --save-dev @angular/cli@12.2.14
+      - npm install && npm install --save-dev @angular/cli@12.2.14
   build:
     commands:
       - echo build process started now
