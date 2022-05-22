@@ -5,4 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './navheader.component.html',
   styles: [],
 })
-export class NavHeaderComponent {}
+export class NavHeaderComponent {
+  imageUrl = '../assets/notes_logo_semfundo.png';
+}
+

@@ -9,6 +9,7 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BodyComponent } from './layout/body/body.component';
+import { BlogpostComponent } from './layout/body/blogpost/blogpost.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule,  HttpClientModule ],
@@ -17,7 +18,8 @@ import { BodyComponent } from './layout/body/body.component';
                   NavHeaderComponent,
                   SidebarComponent,
                   FooterComponent,
-                  BodyComponent
+                  BodyComponent,
+                  BlogpostComponent
                 ],
   bootstrap:    [ AppComponent ]
 })
