@@ -8,7 +8,7 @@ phases:
       nodejs: 12
     commands:
       - echo install process started
-      - npm install && npm install -g @angular/cli@12.2.14
+      - npm install && npm install @angular/cli@12.2.14
   build:
     commands:
       - echo build process started now
