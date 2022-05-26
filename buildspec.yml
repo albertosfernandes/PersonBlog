@@ -13,10 +13,10 @@ phases:
     commands:
       - echo build process started now
       - ng build
-  artifacts:
-    files:
-      - '**/*'
-    base-directory: 'dist'
   post_build:
     commands:
       - echo build process finished, we should uplload to S3 now
+artifacts:
+    files:
+      - '**/*'
+    base-directory: 'dist'
