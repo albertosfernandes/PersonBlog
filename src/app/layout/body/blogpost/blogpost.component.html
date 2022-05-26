@@ -2,11 +2,11 @@
     <h2 class="blog-post-title">A base de tudo</h2>
     <p class="blog-post-meta">Escrito por <a href="#">Alberto</a>, em 1 de Janeiro de 2022.</p>
 
-    <p>Este primeiro post começo falando sobre a infraestrutura DNS. Decidi utilizar a AWS solução para resolução de nomes pois todo o projeto está sobre a nuvem AWS e terei muitos ganhos com os recursos avançados do Route53. Além também de manter todo o gerenciamento centralizado.</p>
+    <p>Este primeiro post começo falando sobre a infraestrutura DNS. Decidi utilizar a AWS como solução para resolução de nomes com intuito de centralizar o  projeto em um único cloud provider, além de poder usufruir de todos os recursos avançados do Route53.</p>
     <hr>
     <h2>Base da infraestrutura</h2>
-    <p>Onde quero chegar na construção dessa infraestrutura.</p>
-    <img [src]="imageUrl1" alt="">
+    <p>Onde quero chegar nessa primeira etapa da infraestrutura.</p>
+    <img [src]="imageUrl1" class="img-fluid" alt="">
     <h4>Construindo meu nome na internet</h4>
     <p>Primeiro passo é definir um nome que defina sua solução e como ela será conhecida na internet.</p>
     <p>Para isso será preciso escolher um provedor para registrar este nome, meu caso resolvi utilizar o "https://registro.br/".</p>
@@ -25,9 +25,9 @@
     <p>A AWS oferece um recurso muito rico para as configurações DNS chamado <b>Route53</b>.Ele foi projetado para ser altamente disponível e escalável gerenciado pela AWS, além de ser totalmente integrado com os recursos aws o que torna mais rápido e seguro os redirecionamentos.</p>
     <p><em>A intenção deste post não é apresentar o Route53, embora seja um recurso incrível da AWS que vale um post. Para maiores informações: https://aws.amazon.com/pt/route53/</em></p>
     <p>Na console AWS, acesse Route53 e clique em Hosted zones, em seguida "Create hosted zone".</p>
-    <img [src]="imageUrl2"  alt="">
+    <img [src]="imageUrl2" class="img-fluid" alt="">
     <p>No campo "Domain Name", coloque exatamente o mesmo nome que foi regristrado, defina como Public e confirme no botão "Create hosted zone".</p>
-    <img [src]="imageUrl3"  alt="">
+    <img [src]="imageUrl3" class="img-fluid" alt="">
     <p>Após a criação acesse o hosted zone criado expande a opção de Hosted zone details e anote os quatro Name Servers que a AWS cria automaticamente, vamos precisar deles para voltar no provedor e informar que utilizaremos esses quatro servidores dns para o registro criado.</p>
-    <img [src]="imageUrl4" alt="">
+    <img [src]="imageUrl4" class="img-fluid" alt="">
   </div><!-- /.blog-post -->
