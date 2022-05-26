@@ -16,12 +16,10 @@
 
       <div class="p-3">
         <h4 class="font-italic">Arquivos</h4>
-        <ol class="list-unstyled mb-0">
-          <li><a href="#">_________________</a></li>
-          <li><a href="#">_________________</a></li>
-          <li><a href="#">_________________</a></li>
-          <li><a href="#">_________________</a></li>
-        </ol>
+        <div class="list-group  " *ngFor="let article of articles_list">
+          <!-- <li class="list-group-item">{{article.title}} | <em>{{article.date_of_included}}</em></li> -->
+          <a href="#" class="list-group-item list-group-item-action list-group-item-light">{{article.title}} | <em>{{article.date_of_included}}</em></a>
+        </div>
       </div>
 
       <div class="p-3">
