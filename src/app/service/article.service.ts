@@ -32,4 +32,16 @@ export class ArticleService {
       )
     )
   }
+
+  getArticle(articleId) {
+    console.log("chamando o: " + articleId)
+    return this.base.httpBase
+    .get(this.base.urlapi + '/prod?articleId='+articleId)
+    .pipe(
+      tap(
+        data => console.log("Sucesso na execucao do servico"),
+        err => console.log(err.error)
+      )
+    )
+  }
 }

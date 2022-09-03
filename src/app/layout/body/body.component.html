@@ -18,7 +18,7 @@
         <h4 class="font-italic">Arquivos</h4>
         <div class="list-group  " *ngFor="let article of articles_list">
           <!-- <li class="list-group-item">{{article.title}} | <em>{{article.date_of_included}}</em></li> -->
-          <a href="#" class="list-group-item list-group-item-action list-group-item-light">{{article.title}} | <em>{{article.date_of_included}}</em></a>
+          <li class="list-group-item list-group-item-action list-group-item-light" (click)="load_article(article.articleId)">{{article.title}}  {{article.articleId}} | <em>{{article.date_of_included}}</em></li>
         </div>
       </div>
 

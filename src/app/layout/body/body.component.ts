@@ -10,6 +10,7 @@ import { ArticleService } from 'src/app/service/article.service';
 export class BodyComponent implements OnInit, OnDestroy{
 
   articles_list;
+  article;
   sub: Subscription[] = [];
   
   constructor(private article_service:ArticleService) {}
@@ -24,11 +25,26 @@ export class BodyComponent implements OnInit, OnDestroy{
         console.error('erro ao carregar artigos');
       },
       () => {
-        //fim
         console.log(this.articles_list);
       })
       )
     }
+
+    load_article(articleId){
+      this.sub.push(
+        this.article_service.getArticle(articleId)
+        .subscribe(article => {
+          this.article = article;
+        },
+        erro => {
+          console.error('erro ao carregar artigos');
+        },
+        () => {
+          console.log(this.article);
+        })
+        )
+      }
+
     ngOnInit(): void {
       this.load_articles();
     }
