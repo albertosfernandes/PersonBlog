@@ -20,16 +20,11 @@ export class SidebarComponent implements OnInit, OnChanges, OnDestroy {
 
   constructor(private serviceArticle: ArticleService) {}
 
-  getAll() {
-    this.articles = this.serviceArticle.getAll();
-  }
-
   ngOnDestroy(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {}
 
   ngOnInit(): void {
-    this.getAll();
     console.log(this.articles);
   }
 }

@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { ModelArticles } from 'src/app/model/model-articles';
 import { ArticleService } from 'src/app/service/article.service';
 
 @Component({
@@ -11,7 +12,9 @@ export class BodyComponent implements OnInit, OnDestroy{
 
   articles_list;
   article;
+  visible:boolean = true
   sub: Subscription[] = [];
+  @Output() change_post = new EventEmitter();
   
   constructor(private article_service:ArticleService) {}
   
@@ -33,18 +36,19 @@ export class BodyComponent implements OnInit, OnDestroy{
     load_article(articleId){
       this.sub.push(
         this.article_service.getArticle(articleId)
-        .subscribe(article => {
-          this.article = article;
+        .subscribe(articlevalue => {
+          this.article = articlevalue[0].post_content;
         },
         erro => {
           console.error('erro ao carregar artigos');
         },
         () => {
-          console.log(this.article);
+//          console.log('meu post: ' + this.article);
+          this.visible = false
         })
         )
       }
-
+   
     ngOnInit(): void {
       this.load_articles();
     }

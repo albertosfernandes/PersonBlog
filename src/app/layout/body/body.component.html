@@ -4,7 +4,14 @@
       <h3 class="pb-3 mb-4 font-italic border-bottom">
         Meus experimentos mais recentes.
       </h3>
-      <app-blogpost></app-blogpost>
+      <div class="p-3" id="posts_started" *ngIf="visible">
+        <h4 class="font-italic">Posts</h4>
+        <div class="list-group  " *ngFor="let article of articles_list">
+          <!-- <li class="list-group-item">{{article.title}} | <em>{{article.date_of_included}}</em></li> -->
+          <li class="list-group-item list-group-item-action list-group-item-light" (click)="load_article(article.articleId)">{{article.title}}  {{article.articleId}} | <em>{{article.date_of_included}}</em></li>
+        </div>
+      </div>
+      <app-blogpost [post_content]='article'></app-blogpost>
     </div><!-- /.blog-main -->
 
     <aside class="col-md-4 blog-sidebar">
@@ -15,7 +22,7 @@
       </div>
 
       <div class="p-3">
-        <h4 class="font-italic">Arquivos</h4>
+        <h4 class="font-italic">Posts</h4>
         <div class="list-group  " *ngFor="let article of articles_list">
           <!-- <li class="list-group-item">{{article.title}} | <em>{{article.date_of_included}}</em></li> -->
           <li class="list-group-item list-group-item-action list-group-item-light" (click)="load_article(article.articleId)">{{article.title}}  {{article.articleId}} | <em>{{article.date_of_included}}</em></li>
@@ -23,11 +30,11 @@
       </div>
 
       <div class="p-3">
-        <h4 class="font-italic">Onde nos encontrar, por aí:</h4>
+        <h4 class="font-italic">Onde me encontrar:</h4>
         <ol class="list-unstyled">
-          <li><a href="#">GitHub</a></li>
-          <li><a href="#">Twitter</a></li>
-          <li><a href="#">Linkedin</a></li>
+          <li><a href="https://github.com/albertosfernandes">GitHub</a></li>
+          <li><a href="https://twitter.com/albertosfernand">Twitter</a></li>
+          <li><a href="https://www.linkedin.com/in/alberto-souza-fernandes-75236b165">Linkedin</a></li>
         </ol>
       </div>
     </aside><!-- /.blog-sidebar -->

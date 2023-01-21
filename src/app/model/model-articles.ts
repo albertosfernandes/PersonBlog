@@ -4,4 +4,5 @@ export class ModelArticles {
   title: string;
   date_of_included: string;
   introduction: string;
+  content: string;
 }
