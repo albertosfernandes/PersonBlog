@@ -82,10 +82,94 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<p>git clone ...</p>
-<p>npm install --save-dev @angular/<a href="mailto:cli@12.2.14">cli@12.2.14</a></p>
-<p>tsconfig: &quot;enableIvy&quot;: false,</p>
+<h1>📝 Projeto Angular - Blog Técnico</h1>
+<p>Este projeto é uma aplicação Angular para publicação de posts técnicos, com estrutura modular e consumo de API para exibição de artigos.</p>
+<hr>
+<h2>📦 Estrutura do Projeto</h2>
+<ul>
+<li><strong>AppModule</strong>: Módulo principal que declara todos os componentes da aplicação.</li>
+<li><strong>Componentes</strong>:<ul>
+<li><code>AppComponent</code>: Componente raiz.</li>
+<li><code>NavHeaderComponent</code>: Cabeçalho de navegação com barra de busca.</li>
+<li><code>SidebarComponent</code>: Lista de tópicos e artigos.</li>
+<li><code>BodyComponent</code>: Corpo principal com lógica de carregamento de artigos.</li>
+<li><code>BlogpostComponent</code>: Exibição de conteúdo de um artigo.</li>
+<li><code>FooterComponent</code>: Rodapé da aplicação.</li>
+<li><code>HelloComponent</code>: Exemplo simples de uso de input.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>🧩 Serviços</h2>
+<ul>
+<li><p><strong>BaseService</strong></p>
+<ul>
+<li>Responsável por armazenar a base da URL e injetar o <code>HttpClient</code>.</li>
+<li>Variáveis:<ul>
+<li><code>urlapi</code>: <code>&quot;https://myapigateway.execute-api.us-east-1.amazonaws.com&quot;</code></li>
+<li><code>httpBase</code>: Cliente HTTP usado por outros serviços.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ArticleService</strong></p>
+<ul>
+<li>Usa o <code>BaseService</code> para acessar endpoints de artigos.</li>
+<li>Métodos:<ul>
+<li><code>getAllArticles()</code>: Retorna todos os artigos disponíveis.</li>
+<li><code>getArticle(articleId)</code>: Retorna um artigo específico com base no <code>articleId</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>📚 Modelo de Dados</h2>
+<h3><code>ModelArticles</code></h3>
+<p>Representa um artigo técnico.</p>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Propriedade</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>articleId</code></td>
+<td>number</td>
+<td>ID do artigo</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>string</td>
+<td>Título do artigo</td>
+</tr>
+<tr>
+<td><code>date_of_included</code></td>
+<td>string</td>
+<td>Data de inclusão</td>
+</tr>
+<tr>
+<td><code>introduction</code></td>
+<td>string</td>
+<td>Introdução/resumo do conteúdo</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>string</td>
+<td>Conteúdo completo em HTML</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>🚀 Como executar o projeto</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install
+ng serve</code></pre></div><p>Comandos que podem ser úteis</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install --save-dev &#64;angular/cli&#64;12.2.14
 
+tsconfig: &quot;enableIvy&quot;: false,</code></pre></div>
 
 
 
