@@ -23,5 +23,10 @@
     "enableIvy": false,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
-  }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": [""],
+  "scripts": {
+  "compodoc": "npx compodoc -p tsconfig.doc.json -s"
+}
 }

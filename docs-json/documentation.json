@@ -1,0 +1,1030 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [
+        {
+            "name": "ArticleService",
+            "id": "injectable-ArticleService-98c6dae4fc29c0bf18cac6f5cf4e68c48b3f0424af416c53499cd1e36894038014db7b5292556908115f8facb8397f962b1fcda4a53fd82762742cfe98415f22",
+            "file": "src/app/service/article.service.ts",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "getAllArticles",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 13,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "getArticle",
+                    "args": [
+                        {
+                            "name": "articleId",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 24,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "articleId",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { tap } from 'rxjs/operators';\r\nimport { ModelArticles } from '../model/model-articles';\r\nimport { BaseService } from './base.service';\r\n\r\n@Injectable({\r\n  providedIn: 'root',\r\n})\r\nexport class ArticleService {\r\n  \r\n  constructor(private base: BaseService) {}\r\n\r\n  getAllArticles() {\r\n    return this.base.httpBase\r\n    .get(this.base.urlapi + '/prod')\r\n    .pipe(\r\n      tap(\r\n        data => console.log(data),\r\n        err => console.log(err.error)\r\n      )\r\n    )\r\n  }\r\n\r\n  getArticle(articleId) {\r\n    console.log(\"chamando o: \" + articleId)\r\n    return this.base.httpBase\r\n    .get(this.base.urlapi + '/prod?articleId='+articleId)\r\n    .pipe(\r\n      tap(\r\n        data => console.log(\"Sucesso na execucao do servico\"),\r\n        err => console.log(err.error)\r\n      )\r\n    )\r\n  }\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "base",
+                        "type": "BaseService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 9,
+                "jsdoctags": [
+                    {
+                        "name": "base",
+                        "type": "BaseService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "type": "injectable"
+        },
+        {
+            "name": "BaseService",
+            "id": "injectable-BaseService-543c9003e40a37116d45e169d4d02262a5d3dabd00144fd9760a1682c35f7944693e4410e39ccfea1a70e5b6e37d5f4a68dcbd33a900a8b0ba2cab05543ac368",
+            "file": "src/app/service/base.service.ts",
+            "properties": [
+                {
+                    "name": "httpBase",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "HttpClient",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "urlapi",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "modifierKind": [
+                        125
+                    ]
+                }
+            ],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { HttpClient } from '@angular/common/http';\r\nimport { Injectable } from '@angular/core';\r\n\r\nconst API = \"https://sa9qid8f4h.execute-api.us-east-1.amazonaws.com\"\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class BaseService {\r\n\r\n  constructor(private http: HttpClient) {\r\n    this.httpBase = this.http;\r\n    this.urlapi = API;\r\n  }\r\n\r\n  public urlapi: string;\r\n  public httpBase: HttpClient;\r\n}",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 9,
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [
+        {
+            "name": "ModelArticles",
+            "id": "class-ModelArticles-1e3e6950dca7927ad2191533b3624c68de47e9960a7791dddea2fed33b8cadabd0877cf2a907c50cda47140d0d53cfeb46a84974f82c93215abb7c14040d335b",
+            "file": "src/app/model/model-articles.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export class ModelArticles {\r\n  articleId: number;\r\n  title: string;\r\n  date_of_included: string;\r\n  introduction: string;\r\n  content: string;\r\n}",
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [
+                {
+                    "name": "articleId",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "content",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "date_of_included",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "introduction",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-d632bf0aa0e926b651997093a687f9c8e005d75509120e2d730b3c37693b63badb5b7210d72b5df003c8d0ede8e0b5e99c4e56122a2f15df94eb99f03db853e5",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "my-app",
+            "styleUrls": [
+                "./app.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "name",
+                    "defaultValue": "'Angular ' + VERSION.major",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, VERSION } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'my-app',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: [ './app.component.css' ]\r\n})\r\nexport class AppComponent  {\r\n  name = 'Angular ' + VERSION.major;\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "p {\r\n  font-family: Lato;\r\n}",
+                    "styleUrl": "./app.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<app-navheader></app-navheader>\r\n<app-body></app-body>\r\n<app-footer></app-footer>\r\n\r\n\r\n\r\n\r\n<!-- <div class=\"d-inline-flex\">\r\n        <div class=\"p-2\"><app-sidebar></app-sidebar></div>\r\n        <div class=\"p-2 flex-grow-1\"><app-body></app-body></div>\r\n</div>\r\n -->"
+        },
+        {
+            "name": "BlogpostComponent",
+            "id": "component-BlogpostComponent-ec9843a1df017f2f7a6d93d66ca72b75a07217be098cdb188f8ed00d370d3820587ac2928bcdac5868e67e8366a0ff0397544cedc355707d362d42b0451751f0",
+            "file": "src/app/layout/body/blogpost/blogpost.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-blogpost",
+            "styleUrls": [
+                "./blogpost.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./blogpost.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "post_content",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "content",
+                    "defaultValue": "'<div class=\"blog-post\"><h2 class=\"blog-post-title\">A base de tudo</h2><p>Este primeiro post começo falando sobre a infraestrutura. Optei em utilizar o serviço DNS da AWS Route53 devido sua alta diponibilidade e confiabilidade e também pela possibilidade de testar todos os recursos avançados do Route53.</p>     <hr>     <h2>Base da infraestrutura</h2>     <p>Onde quero chegar nessa primeira etapa da infraestrutura.</p> <img src=\"../assets/post01/ASF-Infa01.drawio.png\" class=\"img-fluid\" alt=\"\">    <h4>Exibir meu nome para internet</h4>     <p>Primeiro passo é definir um nome que defina sua solução e como ela será conhecida na internet.</p>     <p>Para isso será preciso escolher um provedor para registrar este nome, meu caso resolvi utilizar o \"https://registro.br/\".</p>     <p>Para efetivar o registro primeiro precisa pesquisar sua disponibilidade, a primeira opção que deve aparecer é \"PESQUISAR DOMÍNIO\", junto com a resposta da pesquisa devem aparecer algumas opções de categoria:</p>     <ul>         <li>Atividades comerciais: <b>com.br</b></li>         <li>Tecnologia: <b>tec.br</b></li>         <li>Blogs: <b>blog.com</b></li>       </ul>     <p>Estes são alguns exemplos, existem diversos, abuse da criatividade!</p>     <p>Siga os passos para concluir seu registro. Por enquanto mantendo todas opções como padrão.</p>     <p><em>Importante lembrar ao leitor dependendo do provedor e tipo de registro que escolher existe uma taxa a ser paga.</em></p>     <h4>AWS Route53</h4>     <p>Uma vez definido e registrado o nome na internet, o próximo passo é escolher onde e como realizar as configurações para este nome registrado.</p>     <p>A AWS oferece um recurso muito rico para as configurações DNS chamado <b>Route53</b>.Ele foi projetado para ser altamente disponível e escalável gerenciado pela AWS, além de ser totalmente integrado com os recursos aws o que torna mais rápido e seguro os redirecionamentos.</p>     <p><em>A intenção deste post não é apresentar o Route53, embora seja um recurso incrível da AWS que vale um post. Para maiores informações: https://aws.amazon.com/pt/route53/</em></p>     <p>Na console AWS, acesse Route53 e clique em Hosted zones, em seguida \"Create hosted zone\".</p>  <img src=\"../assets/post01/aws-route53-01.png\" class=\"img-fluid\" alt=\"\">  <p>No campo \"Domain Name\", coloque exatamente o mesmo nome que foi regristrado, defina como Public e confirme no botão \"Create hosted zone\".</p>   <img src=\"../assets/post01/aws-route53-02.png\" class=\"img-fluid\" alt=\"\">  <p>Após a criação acesse o hosted zone criado expande a opção de Hosted zone details e anote os quatro Name Servers que a AWS cria automaticamente, vamos precisar deles para voltar no provedor e informar que utilizaremos esses quatro servidores dns para o registro criado.</p>  <img src=\"../assets/post01/aws-route53-03.png\" class=\"img-fluid\" alt=\"\"></div>'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\nimport { ModelArticles } from 'src/app/model/model-articles';\r\n\r\n@Component({\r\n  selector: 'app-blogpost',\r\n  templateUrl: './blogpost.component.html',\r\n  styleUrls: ['./blogpost.component.css']\r\n})\r\nexport class BlogpostComponent implements OnInit {\r\n\r\n  constructor() { }\r\n  \r\n  content = '<div class=\"blog-post\"><h2 class=\"blog-post-title\">A base de tudo</h2><p>Este primeiro post começo falando sobre a infraestrutura. Optei em utilizar o serviço DNS da AWS Route53 devido sua alta diponibilidade e confiabilidade e também pela possibilidade de testar todos os recursos avançados do Route53.</p>     <hr>     <h2>Base da infraestrutura</h2>     <p>Onde quero chegar nessa primeira etapa da infraestrutura.</p> <img src=\"../assets/post01/ASF-Infa01.drawio.png\" class=\"img-fluid\" alt=\"\">    <h4>Exibir meu nome para internet</h4>     <p>Primeiro passo é definir um nome que defina sua solução e como ela será conhecida na internet.</p>     <p>Para isso será preciso escolher um provedor para registrar este nome, meu caso resolvi utilizar o \"https://registro.br/\".</p>     <p>Para efetivar o registro primeiro precisa pesquisar sua disponibilidade, a primeira opção que deve aparecer é \"PESQUISAR DOMÍNIO\", junto com a resposta da pesquisa devem aparecer algumas opções de categoria:</p>     <ul>         <li>Atividades comerciais: <b>com.br</b></li>         <li>Tecnologia: <b>tec.br</b></li>         <li>Blogs: <b>blog.com</b></li>       </ul>     <p>Estes são alguns exemplos, existem diversos, abuse da criatividade!</p>     <p>Siga os passos para concluir seu registro. Por enquanto mantendo todas opções como padrão.</p>     <p><em>Importante lembrar ao leitor dependendo do provedor e tipo de registro que escolher existe uma taxa a ser paga.</em></p>     <h4>AWS Route53</h4>     <p>Uma vez definido e registrado o nome na internet, o próximo passo é escolher onde e como realizar as configurações para este nome registrado.</p>     <p>A AWS oferece um recurso muito rico para as configurações DNS chamado <b>Route53</b>.Ele foi projetado para ser altamente disponível e escalável gerenciado pela AWS, além de ser totalmente integrado com os recursos aws o que torna mais rápido e seguro os redirecionamentos.</p>     <p><em>A intenção deste post não é apresentar o Route53, embora seja um recurso incrível da AWS que vale um post. Para maiores informações: https://aws.amazon.com/pt/route53/</em></p>     <p>Na console AWS, acesse Route53 e clique em Hosted zones, em seguida \"Create hosted zone\".</p>  <img src=\"../assets/post01/aws-route53-01.png\" class=\"img-fluid\" alt=\"\">  <p>No campo \"Domain Name\", coloque exatamente o mesmo nome que foi regristrado, defina como Public e confirme no botão \"Create hosted zone\".</p>   <img src=\"../assets/post01/aws-route53-02.png\" class=\"img-fluid\" alt=\"\">  <p>Após a criação acesse o hosted zone criado expande a opção de Hosted zone details e anote os quatro Name Servers que a AWS cria automaticamente, vamos precisar deles para voltar no provedor e informar que utilizaremos esses quatro servidores dns para o registro criado.</p>  <img src=\"../assets/post01/aws-route53-03.png\" class=\"img-fluid\" alt=\"\"></div>'\r\n  @Input() post_content = '';\r\n  \r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./blogpost.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 9
+            },
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div [innerHTML]=\"post_content\"></div>\r\n"
+        },
+        {
+            "name": "BodyComponent",
+            "id": "component-BodyComponent-83b8d5fad7170ffaf858f7850c6f83303f6cce2924eefb4d8a099623400a83bed279630f1bbbd45b3ed7e10f0fa5417fe5c445759e9b1eea281bb1c1d9f99c7f",
+            "file": "src/app/layout/body/body.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-body",
+            "styleUrls": [],
+            "styles": [
+                "body-style.component.css"
+            ],
+            "templateUrl": [
+                "./body.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "change_post",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "article",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "articles_list",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "sub",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Subscription[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "visible",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "load_article",
+                    "args": [
+                        {
+                            "name": "articleId",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 36,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "articleId",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "load_articles",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 55,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 52,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';\r\nimport { Subscription } from 'rxjs';\r\nimport { ModelArticles } from 'src/app/model/model-articles';\r\nimport { ArticleService } from 'src/app/service/article.service';\r\n\r\n@Component({\r\n  selector: 'app-body',\r\n  templateUrl: './body.component.html',\r\n  styles: ['body-style.component.css'],\r\n})\r\nexport class BodyComponent implements OnInit, OnDestroy{\r\n\r\n  articles_list;\r\n  article;\r\n  visible:boolean = true\r\n  sub: Subscription[] = [];\r\n  @Output() change_post = new EventEmitter();\r\n  \r\n  constructor(private article_service:ArticleService) {}\r\n  \r\n  load_articles(){\r\n    this.sub.push(\r\n      this.article_service.getAllArticles()\r\n      .subscribe(articles => {\r\n        this.articles_list = articles;\r\n      },\r\n      erro => {\r\n        console.error('erro ao carregar artigos');\r\n      },\r\n      () => {\r\n        console.log(this.articles_list);\r\n      })\r\n      )\r\n    }\r\n\r\n    load_article(articleId){\r\n      this.sub.push(\r\n        this.article_service.getArticle(articleId)\r\n        .subscribe(articlevalue => {\r\n          this.article = articlevalue[0].post_content;\r\n        },\r\n        erro => {\r\n          console.error('erro ao carregar artigos');\r\n        },\r\n        () => {\r\n//          console.log('meu post: ' + this.article);\r\n          this.visible = false\r\n        })\r\n        )\r\n      }\r\n   \r\n    ngOnInit(): void {\r\n      this.load_articles();\r\n    }\r\n    ngOnDestroy(): void {\r\n      this.sub.forEach(s => s.unsubscribe);\r\n    }\r\n}",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "body-style.component.css\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "article_service",
+                        "type": "ArticleService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 17,
+                "jsdoctags": [
+                    {
+                        "name": "article_service",
+                        "type": "ArticleService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "implements": [
+                "OnInit",
+                "OnDestroy"
+            ],
+            "templateData": "<main role=\"main\" class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-8 blog-main\">\r\n      <h3 class=\"pb-3 mb-4 font-italic border-bottom\">\r\n        Meus experimentos mais recentes.\r\n      </h3>\r\n      <div class=\"p-3\" id=\"posts_started\" *ngIf=\"visible\">\r\n        <h4 class=\"font-italic\">Posts</h4>\r\n        <div class=\"list-group  \" *ngFor=\"let article of articles_list\">\r\n          <!-- <li class=\"list-group-item\">{{article.title}} | <em>{{article.date_of_included}}</em></li> -->\r\n          <li class=\"list-group-item list-group-item-action list-group-item-light\" (click)=\"load_article(article.articleId)\">{{article.title}}  {{article.articleId}} | <em>{{article.date_of_included}}</em></li>\r\n        </div>\r\n      </div>\r\n      <app-blogpost [post_content]='article'></app-blogpost>\r\n    </div><!-- /.blog-main -->\r\n\r\n    <aside class=\"col-md-4 blog-sidebar\">\r\n      <div class=\"p-3 mb-3 bg-light rounded\">\r\n        <h4 class=\"font-italic\">Sobre</h4>\r\n        <p class=\"mb-0\">O principal objetivo deste blog <em>\"se assim posso chama-lo\"</em>é manter um repositório dos meus experimentos e estudos. Também utilizado como base para aplicação dos conceitos que serão experimentados.</p>\r\n        <p class=\"mb-0\">Peço desculpas por não tornar a experiência atrativa ao leitor, espero porém que o conteúdo possa ajudar de alguma forma a comunidade.</p>\r\n      </div>\r\n\r\n      <div class=\"p-3\">\r\n        <h4 class=\"font-italic\">Posts</h4>\r\n        <div class=\"list-group  \" *ngFor=\"let article of articles_list\">\r\n          <!-- <li class=\"list-group-item\">{{article.title}} | <em>{{article.date_of_included}}</em></li> -->\r\n          <li class=\"list-group-item list-group-item-action list-group-item-light\" (click)=\"load_article(article.articleId)\">{{article.title}}  {{article.articleId}} | <em>{{article.date_of_included}}</em></li>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"p-3\">\r\n        <h4 class=\"font-italic\">Onde me encontrar:</h4>\r\n        <ol class=\"list-unstyled\">\r\n          <li><a href=\"https://github.com/albertosfernandes\">GitHub</a></li>\r\n          <li><a href=\"https://twitter.com/albertosfernand\">Twitter</a></li>\r\n          <li><a href=\"https://www.linkedin.com/in/alberto-souza-fernandes-75236b165\">Linkedin</a></li>\r\n        </ol>\r\n      </div>\r\n    </aside><!-- /.blog-sidebar -->\r\n\r\n  </div><!-- /.row -->\r\n\r\n</main><!-- /.container -->"
+        },
+        {
+            "name": "FooterComponent",
+            "id": "component-FooterComponent-443dfce85111c9e743879d9ea3b6220365117c9477b9724971fe00ec99e4f5f89c18c18ac8248f8ebc5ec6db3a920dc3abe7854ad972684b082da8edb589bc00",
+            "file": "src/app/layout/footer/footer.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-footer",
+            "styleUrls": [],
+            "styles": [
+                "footer-style.component.css"
+            ],
+            "templateUrl": [
+                "./footer.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-footer',\r\n  templateUrl: './footer.component.html',\r\n  styles: ['footer-style.component.css'],\r\n})\r\nexport class FooterComponent {}",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "footer-style.component.css\n",
+            "extends": [],
+            "templateData": "\r\n<footer class=\"blog-footer\">\r\n  <p>Template de blog Bootstrap.</p>\r\n  <p>\r\n    <a href=\"#\">Voltar ao topo</a>\r\n  </p>\r\n</footer>"
+        },
+        {
+            "name": "HelloComponent",
+            "id": "component-HelloComponent-90abe501520bb71c79249da4a0dbd2b21cd93879dd402acdea92ab5401a8c2764b30e29629732e2cf34f095f4989e1e61d4dba6492f6f7d59f8828575549b83f",
+            "file": "src/app/hello.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "hello",
+            "styleUrls": [],
+            "styles": [
+                "h1 { font-family: Lato; }"
+            ],
+            "template": "<h1>Hello {{name}}!</h1>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'hello',\r\n  template: `<h1>Hello {{name}}!</h1>`,\r\n  styles: [`h1 { font-family: Lato; }`]\r\n})\r\nexport class HelloComponent  {\r\n  @Input() name: string;\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "h1 { font-family: Lato; }\n",
+            "extends": []
+        },
+        {
+            "name": "NavHeaderComponent",
+            "id": "component-NavHeaderComponent-64ffd5bd5dec16714b2f790b24179ddd6ad2c691b78fd8f83c9a25fa1418dbc3b58c2e45898d95a2a405d319b85d8edb0da0b1fd41bdcc9a2a986d9cf05cee8a",
+            "file": "src/app/layout/header/navheader.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-navheader",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./navheader.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "imageUrl",
+                    "defaultValue": "'../assets/notes_logo_semfundo.png'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-navheader',\r\n  templateUrl: './navheader.component.html',\r\n  styles: [],\r\n})\r\nexport class NavHeaderComponent {\r\n  imageUrl = '../assets/notes_logo_semfundo.png';\r\n}\r\n\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n  <div class=\"container-fluid\">\r\n    <a class=\"navbar-brand\" href=\"#\">\r\n      <img [src]=\"imageUrl\" width=\"30\" height=\"30\" alt=\"\">\r\n      My Notes :: ASF :: </a>\r\n    <button\r\n      class=\"navbar-toggler\"\r\n      type=\"button\"\r\n      data-bs-toggle=\"collapse\"\r\n      data-bs-target=\"#navbarSupportedContent\"\r\n      aria-controls=\"navbarSupportedContent\"\r\n      aria-expanded=\"false\"\r\n      aria-label=\"Toggle navigation\"\r\n    >\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n      <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\"></ul>\r\n      <form class=\"d-flex\">\r\n        <input\r\n          class=\"form-control me-2\"\r\n          type=\"search\"\r\n          placeholder=\"Search\"\r\n          aria-label=\"Search\"\r\n        />\r\n        <button class=\"btn btn-outline-secondary\" type=\"submit\">Search</button>\r\n      </form>\r\n    </div>\r\n  </div>\r\n</nav>\r\n\r\n"
+        },
+        {
+            "name": "SidebarComponent",
+            "id": "component-SidebarComponent-dd690bc65ee44aa292c1d95b84483cf94285df1c9428be8ef8529f2d6d1939cbf8a14bef3efa03d463b00d84d0ff85fec4efccedf3d2afc516f27d8d224a3229",
+            "file": "src/app/layout/sidebar/sidebar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-sidebar",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./sidebar.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "articles",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ModelArticles[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                },
+                {
+                    "name": "sub",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Subscription[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnChanges",
+                    "args": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\r\n  Component,\r\n  OnChanges,\r\n  OnDestroy,\r\n  OnInit,\r\n  SimpleChanges,\r\n} from '@angular/core';\r\nimport { Subscription } from 'rxjs';\r\nimport { ModelArticles } from '../../model/model-articles';\r\nimport { ArticleService } from '../../service/article.service';\r\n\r\n@Component({\r\n  selector: 'app-sidebar',\r\n  templateUrl: './sidebar.component.html',\r\n  styles: [],\r\n})\r\nexport class SidebarComponent implements OnInit, OnChanges, OnDestroy {\r\n  sub: Subscription[] = [];\r\n  articles: ModelArticles[] = [];\r\n\r\n  constructor(private serviceArticle: ArticleService) {}\r\n\r\n  ngOnDestroy(): void {}\r\n\r\n  ngOnChanges(changes: SimpleChanges): void {}\r\n\r\n  ngOnInit(): void {\r\n    console.log(this.articles);\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "serviceArticle",
+                        "type": "ArticleService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 19,
+                "jsdoctags": [
+                    {
+                        "name": "serviceArticle",
+                        "type": "ArticleService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "implements": [
+                "OnInit",
+                "OnChanges",
+                "OnDestroy"
+            ],
+            "templateData": "<!-- <div class=\"d-flex flex-column align-items-stretch flex-shrink-0 bg-white\" style=\"width: 250px;\"> -->\r\n<div class=\"bg-white\">\r\n  <div class=\"link-dark text-light bg-secondary text-decoration-none border-bottom\">\r\n    <span class=\"fs-5 fw-semibold\">Tópicos</span>\r\n  </div>\r\n\r\n  \r\n  <div class=\"list-group list-group-flush border-bottom scrollarea\" *ngFor=\"let article of articles\">\r\n    <div class=\"list-group-item list-group-item-action py-1 lh-tight\" aria-current=\"true\">\r\n      <!-- <div class=\"d-flex w-100 align-items-center justify-content-between\"> -->\r\n        <div class=\"d-flex align-items-center justify-content-between\">\r\n        <strong class=\"mb-1\">{{article.articleTitle}}</strong>\r\n        <small>{{article.articleDate}}</small>\r\n      </div>\r\n      <!-- <div class=\"col-10 mb-1 small\"> -->\r\n        <div class=\"col-10 mb-1 small\">\r\n        {{article.articleResume}}\r\n      </div>\r\n      <span>{{article.articleKeys}}</span>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AppModule",
+            "id": "module-AppModule-77532452b82d73a33240a74491d856974911e126cd480daebbd34fdca914d77e892edb9eb10f40772583477fe0e5fc15c185ff3ad530539be7db35266b027df6",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\nimport { AppComponent } from './app.component';\r\nimport { HelloComponent } from './hello.component';\r\nimport { NavHeaderComponent } from './layout/header/navheader.component';\r\nimport { SidebarComponent } from './layout/sidebar/sidebar.component';\r\nimport { FooterComponent } from './layout/footer/footer.component';\r\nimport { HttpClientModule } from '@angular/common/http';\r\nimport { BodyComponent } from './layout/body/body.component';\r\nimport { BlogpostComponent } from './layout/body/blogpost/blogpost.component';\r\n\r\n@NgModule({\r\n  imports:      [ BrowserModule, FormsModule,  HttpClientModule ],\r\n  declarations: [ AppComponent, \r\n                  HelloComponent,\r\n                  NavHeaderComponent,\r\n                  SidebarComponent,\r\n                  FooterComponent,\r\n                  BodyComponent,\r\n                  BlogpostComponent\r\n                ],\r\n  bootstrap:    [ AppComponent ]\r\n})\r\nexport class AppModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        },
+                        {
+                            "name": "BlogpostComponent"
+                        },
+                        {
+                            "name": "BodyComponent"
+                        },
+                        {
+                            "name": "FooterComponent"
+                        },
+                        {
+                            "name": "HelloComponent"
+                        },
+                        {
+                            "name": "NavHeaderComponent"
+                        },
+                        {
+                            "name": "SidebarComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "API",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/service/base.service.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "\"https://sa9qid8f4h.execute-api.us-east-1.amazonaws.com\""
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/app/service/base.service.ts": [
+                {
+                    "name": "API",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/service/base.service.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "\"https://sa9qid8f4h.execute-api.us-east-1.amazonaws.com\""
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {}
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/hello.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HelloComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/layout/body/blogpost/blogpost.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BlogpostComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/layout/body/body.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BodyComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/11",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/layout/footer/footer.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FooterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/layout/header/navheader.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NavHeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/layout/sidebar/sidebar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SidebarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/model/model-articles.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "ModelArticles",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/service/article.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ArticleService",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/service/base.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "BaseService",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/service/base.service.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "API",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}
