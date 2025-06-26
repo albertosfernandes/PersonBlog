@@ -88,9 +88,9 @@ A aplicação do PersonBlog é uma aplicação web estática com backend serverl
 
   - **Source**
 
-  - Nesta etapa que realizo o conexão do código que está versionado no Github com o processo de Pipeline. A conexão é feita através do Amazon CodeStar. *(O AWS CodeStar é um serviço da Amazon Web Services que fornece uma interface unificada para gerenciar o desenvolvimento de aplicações na AWS, permitindo que você configure rapidamente um pipeline de CI/CD completo e um ambiente de desenvolvimento colaborativo.)*
+    - Nesta etapa que realizo o conexão do código que está versionado no Github com o processo de Pipeline. A conexão é feita através do Amazon CodeStar. *(O AWS CodeStar é um serviço da Amazon Web Services que fornece uma interface unificada para gerenciar o desenvolvimento de aplicações na AWS, permitindo que você configure rapidamente um pipeline de CI/CD completo e um ambiente de desenvolvimento colaborativo.)*
 
-  - Cada push no repositório aciona o AWS CodePipeline.
+    - Cada push no repositório aciona o AWS CodePipeline.
 
 - **Build**
 
